@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="refresh" content="0; url=http://espiot.hcitsolutions.in/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Om Hari Bhawan</title>
+    <style></style>
+    <link rel="stylesheet" href="hc_main.css?v=3" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+</head>
+<body style="background: #ebf5fc;">
+<div class="jumbotron vertical-center" style="margin-bottom: 0px;background: #ebf5fc;">
+    <div class="container ul" id="tab_1" style="display: none;">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-primary" role="alert" style="text-align: center;">
+                    <b>माँ का आशियाना </b>
+                    <span class="float-right" onclick="javascript:location.reload(false)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="2em" height="2em">
+                           <path d="M0 0h24v24H0z" fill="none" />
+                           <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+                        </svg>
+                     </span>
+                </div>
+            </div>
+        </div>
+        <h4 class="text-center">Please Login</h4>
+        <br />
+        <br />
+        <form onsubmit="return false;" autocomplete="off">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" autocomplete="current-username" id="username" placeholder="Enter login username" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" autocomplete="current-password" id="password" placeholder="Enter login password" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" onclick="user_login(this)">Login</button>
+            </div>
+        </form>
+        <br />
+        <br />
+        <br />
+        <div class="text-center font-weight-bold font-italic">
+            <hr style="margin: 0rem;" />
+            Chauhan's Family
+        </div>
+    </div>
+    <div class="container ul" id="tab_2" style="display: none;">
+        <div class="col-12">
+            <div class="alert alert-primary" role="alert" style="text-align: center; margin-bottom: 5px;">
+                  <span id="statusDiv" class="float-left">
+                  <img width="2em" height="2em" src="offline.svg" id="statusImg" style="width: 2em; height: 2em;" />
+                  </span>
+                <b>माँ का आशियाना</b>
+                <span class="float-right" onclick="refresh_page();">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="2em" height="2em">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+                     </svg>
+                  </span>
+            </div>
+            <div class="text-center h7" style="margin-bottom: 10px;"><b>WELCOME:-</b> <span id="user_name"></span><span onclick="logout()" style="color: red;"> &nbsp; &nbsp; Logout</span></div>
+            <div class="text-center" id="admin_mode_viewer" style="display: none;">
+                <a href="#" onclick="change_admin_mode();this.blur()"><b>Change Admin Mode</b><br /></a>
+            </div>
+        </div>
+        <span id="user_mode">
+               <div class="row">
+                  <div class="col-4 hc_button">
+                     <label data-t="btn">
+                        <input type="checkbox" name="power" />
+                        <div class="icon-box img-div" style="background-image: url(power.png); background-size: 80% 80%; background-repeat: no-repeat; background-position: center;" data-on="power-on.png" data-off="power.png"></div>
+                     </label>
+                  </div>
+                  <div class="col-4 hc_button">
+                     <label data-t="btn">
+                        <input type="checkbox" name="LED_1" />
+                        <div class="icon-box img-div" style="background-image: url(tv.svg);" data-on="tv-on.svg" data-off="tv.svg"></div>
+                     </label>
+                  </div>
+                  <div class="col-4 hc_button">
+                     <label data-t="btn">
+                        <input type="checkbox" name="LED_2" />
+                        <div class="icon-box img-div" data-on="fan-on.svg" data-spin="1" data-off="fan.svg">
+                           <img src="fan-on.svg" style="width: 95%; height: 60%;" />
+                        </div>
+                     </label>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-4 hc_button">
+                     <label data-t="btn">
+                        <input type="checkbox" name="LED_3" />
+                        <div class="icon-box img-div" style="background-image: url(lightbulb.svg);" data-on="lightbulb-on.svg" data-off="lightbulb.svg"></div>
+                     </label>
+                  </div>
+                  <div class="col-4 hc_button">
+                     <label data-t="btn">
+                        <input type="checkbox" name="LED_4" />
+                        <div class="icon-box img-div" style="background-image: url(cons.png);" data-on="cons-on.png" data-off="cons.png"></div>
+                     </label>
+                  </div>
+                  <div class="col-4 hc_button">
+                     <label data-t="btn">
+                        <input type="checkbox" name="LED_5" />
+                        <div class="icon-box img-div" style="background-image: url(cons.png);" data-on="cons-on.png" data-off="cons.png"></div>
+                     </label>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-4 hc_button">
+                     <label data-t="btn">
+                        <input type="checkbox" name="LED_6" />
+                        <div class="icon-box img-div" style="background-image: url(lightbulb.svg);" data-on="lightbulb-on.svg" data-off="lightbulb.svg"></div>
+                     </label>
+                  </div>
+                  <div class="col-4 hc_button">
+                     <label data-t="btn">
+                        <input type="checkbox" name="LED_7" />
+                        <div class="icon-box img-div" style="background-image: url(cons.png);" data-on="cons-on.png" data-off="cons.png"></div>
+                     </label>
+                  </div>
+                  <div class="col-4 hc_button">
+                     <label data-t="btn">
+                        <input type="checkbox" name="LED_8" />
+                        <div class="icon-box img-div" style="background-image: url(cons.png);" data-on="cons-on.png" data-off="cons.png"></div>
+                     </label>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-9" style="padding-right: 2px">
+                     <div class="alert alert-success" role="alert" style="text-align: center; height: 50px; padding: 0px; border-radius: 20px 0px 0px 20px;">
+                        <span class="water_level"> </span>
+                        <span class="water_text">
+                        <b> WATER LEVEL <span id="water_per">0</span>% </b>
+                        </span>
+                     </div>
+                  </div>
+                  <div class="col-3" style="padding-left: 2px">
+                     <div class="alert alert-success" onclick="change_temprature_type()" role="alert" style="text-align: center; height: 50px; padding: 0px; border-radius: 0px 20px 20px 0px;">
+                        <span class="water_text">
+                        <b><span id="tmpSpan"></span> °<span id="tempratureUnitSpan">C</span></b>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </span>
+        <span id="admin_mode" style="display: none;">
+               <span class="h4" style="color: green;">User List </span><a href="#" data-toggle="modal" data-target="#userAddModl">Add New User</a>
+               <div class="row">
+                  <div class="col-12" style="max-height: 400px; width: 100%; overflow-y: auto;">
+                     <div class="table-responsive">
+                        <table class="table table-striped">
+                           <thead>
+                              <tr>
+                                 <th scope="col">#</th>
+                                 <th scope="col">Name</th>
+                                 <th scope="col">UName</th>
+                                 <th scope="col">Status</th>
+                              </tr>
+                           </thead>
+                           <tbody id="users_list"></tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <h4 style="color: green;">Online User</h4>
+               <div class="row">
+                  <div class="col-12" style="max-height: 400px; width: 100%; overflow-y: auto;">
+                     <div class="table-responsive">
+                        <table class="table table-striped">
+                           <thead>
+                              <tr>
+                                 <th scope="col">Name</th>
+                                 <th scope="col">UName</th>
+                                 <th scope="col">Devices</th>
+                              </tr>
+                           </thead>
+                           <tbody id="online_users_list"></tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </span>
+        <div class="text-center font-weight-bold font-italic">
+            <hr style="margin: 0rem;" />
+            Chauhan's Family
+        </div>
+    </div>
+    <div class="container ul" id="tab_3" style="display: none;">
+        <h5 style="text-align: center;">
+            UPDATE DAILY SCHEDULE FOR <br />
+            <span id="schedule_head_txt">LED 1</span>
+        </h5>
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-primary" role="alert" style="text-align: center; padding: 0.15rem 0.25rem;"><b>FIRST SCHEDULE</b></div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 col-form-label"><label for="time_1" style="font-size: 1.3rem;">ON</label></div>
+            <div class="col-8"><input type="time" name="time_1" class="form-control-plaintext time_selector" id="time_1" /></div>
+            <div class="col-1" style="font-size: 200%; padding: 0px; margin-left: -10px;" onclick="$('#time_1').val('')">&times;</div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 col-form-label"><label for="time_2" style="font-size: 1.3rem;">OFF</label></div>
+            <div class="col-8"><input type="time" name="time_2" class="form-control-plaintext time_selector" id="time_2" /></div>
+            <div class="col-1" style="font-size: 200%; padding: 0px; margin-left: -10px;" onclick="$('#time_2').val('')">&times;</div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-primary" role="alert" style="text-align: center; padding: 0.15rem 0.25rem;"><b>SECOND SCHEDULE</b></div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 col-form-label"><label for="time_3" style="font-size: 1.3rem;">ON</label></div>
+            <div class="col-8"><input type="time" name="time_3" class="form-control-plaintext time_selector" id="time_3" /></div>
+            <div class="col-1" style="font-size: 200%; padding: 0px; margin-left: -10px;" onclick="$('#time_3').val('')">&times;</div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 col-form-label"><label for="time_4" style="font-size: 1.3rem;">OFF</label></div>
+            <div class="col-8"><input type="time" name="time_4" class="form-control-plaintext time_selector" id="time_4" /></div>
+            <div class="col-1" style="font-size: 200%; padding: 0px; margin-left: -10px;" onclick="$('#time_4').val('')">&times;</div>
+        </div>
+        <hr />
+        <div class="form-group row">
+            <div class="col-6"><button type="button" class="btn btn-success" onclick="save_schedule();" id="sch_save_btn" style="width: 100%;">Save</button></div>
+            <div class="col-6"><button type="button" class="btn btn-secondary" onclick="cancel_schedule();" style="width: 100%;">Cancel</button></div>
+        </div>
+        <div class="text-center font-weight-bold font-italic">
+            <hr style="margin: 0rem;" />
+            Chauhan's Family
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="userAddModl" tabindex="-1" role="dialog" aria-labelledby="userAddModlTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userAddModlTitle">Add User For Device</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form onsubmit="admin_add_user();return false;">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="userAddUName">Username</label>
+                        <input type="text" class="form-control" id="userAddUName" placeholder="Username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userAddName">Name</label>
+                        <input type="text" class="form-control" id="userAddName" placeholder="Harendra Chauhan" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userAddPass">Password</label>
+                        <input type="text" class="form-control" id="userAddPass" placeholder="Password" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userAddstatus">Status</label>
+                        <select class="form-control" id="userAddstatus">
+                            <option value="1">Active</option>
+                            <option value="0">DeActive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="AddUserBtnClose" data-dismiss="modal">Close</button>
+                    <input type="submit" onclick="" class="btn btn-primary" id="AddUserBtn" value="Save changes" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="userUpdateModl" tabindex="-1" role="dialog" aria-labelledby="userUpdateModlTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userUpdateModlTitle">Update User Details For Device</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form onsubmit="admin_update_user();return false;">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="userUpdateUName">Username</label>
+                        <input type="text" class="form-control" id="userUpdateUName" readonly="readonly" placeholder="username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userUpdateName">Name</label>
+                        <input type="text" class="form-control" id="userUpdateName" placeholder="Harendra Chauhan" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userUpdatePass">Password</label>
+                        <input type="text" class="form-control" id="userUpdatePass" placeholder="Password" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userUpdatestatus">Status</label>
+                        <select class="form-control" id="userUpdatestatus">
+                            <option value="1">Active</option>
+                            <option value="0">DeActive</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="userUpdateTelegram">Telegram</label>
+                        <input type="text" class="form-control" id="userUpdateTelegram" placeholder="Telegram Chat Or Group IDs" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userUpdateDate">User Add Time</label>
+                        <input type="text" class="form-control" id="userUpdateDate" disabled placeholder="Date Time" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="UpdateUserBtnClose" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="UpdateUserBtnDel" data-dismiss="modal" onclick="admin_remove_user();">Remove User</button>
+                    <input type="submit" onclick="" class="btn btn-primary" id="UpdateUserBtn" value="Save changes" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="snackbar"></div>
+<script src="jquery-3.5.1.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="hc_main.js"></script>
+</body>
+</html>

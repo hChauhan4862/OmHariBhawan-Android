@@ -1,0 +1,209 @@
+body {
+	background: #ebf5fc;
+	height: 100%;
+}
+
+.ul {
+	align-items: center;
+	border-radius: 10px;
+	padding: 5vw;
+	width: 80vw;
+	background: #ebf5fc;
+	box-shadow: -2px -2px 5px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
+	max-width: 450px;
+}
+
+.vertical-center {
+	display: flex;
+	align-items: center;
+	background: #ebf5fc;
+}
+
+.hc_button {
+	position: relative;
+	list-style: none;
+	text-align: center;
+}
+
+.hc_button label {
+	position: relative;
+	cursor: pointer;
+	width: 100%;
+}
+
+.hc_button label input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+}
+
+.hc_button label :checked~.icon-box {
+	box-shadow: inset -2px -2px 5px white, inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hc_button label :checked~.icon-box .fa {
+	transform: scale(0.95);
+}
+
+.hc_button label .icon-box {
+	width: 100%;
+	height: 100px;
+	background: #ebf5fc;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: -2px -2px 5px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	background-size: 95% 60%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.hc_button label .icon-box .fa,
+.fas,
+.far,
+.fad {
+	font-size: 30px;
+	color: #6a9bd8;
+}
+
+.fa-spin {
+	-webkit-animation: fa-spin 2s linear infinite;
+	animation: fa-spin 2s linear infinite;
+}
+
+@-webkit-keyframes fa-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(1turn);
+		transform: rotate(1turn);
+	}
+}
+
+@keyframes fa-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(1turn);
+		transform: rotate(1turn);
+	}
+}
+
+.blurry_text {
+	color: transparent;
+	text-shadow: 0 0 rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+
+#snackbar {
+	visibility: hidden;
+	min-width: 250px;
+	margin-left: -125px;
+	color: #fff;
+	text-align: center;
+	border-radius: 2px;
+	padding: 16px;
+	position: fixed;
+	z-index: 1099090900090;
+	left: 50%;
+	bottom: 30px;
+	font-size: 17px;
+}
+
+#snackbar.show {
+	visibility: visible;
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0;
+	}
+	to {
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0;
+	}
+	to {
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1;
+	}
+	to {
+		bottom: 0;
+		opacity: 0;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1;
+	}
+	to {
+		bottom: 0;
+		opacity: 0;
+	}
+}
+
+input[type="time"] {
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><circle cx='20' cy='20' r='18.5' fill='none' stroke='%23222' stroke-width='3' /><path d='M20,4 20,8 M4,20 8,20 M36,20 32,20 M20,36 20,32' stroke='%23bbb' stroke-width='1' /><circle cx='20' cy='20' r='2' fill='%23222' stroke='%23222' stroke-width='2' /></svg>"), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M18.5,24.5 19.5,4 20.5,4 21.5,24.5 Z' fill='%23222' style='transform:rotate(120deg); transform-origin: 50% 50%;' /></svg>"), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M18.5,24.5 19.5,8.5 20.5,8.5 21.5,24.5 Z' style='transform:rotate(20deg); transform-origin: 50% 50%;' /></svg>");
+	--color: #945;
+	--bgColor: #d89;
+	--size: 1.3rem;
+	--border: calc(var(--size) * 0.125);
+	--borderRadius: calc(var(--size) * 0.5);
+	--labelSize: calc(var(--size) * 0.75);
+	--margin: calc(var(--size) * 0.25);
+	--marginLeft: calc(var(--size) + calc(var(--size) * 0.5));
+	background-position: var(--margin) 50%;
+	background-repeat: no-repeat;
+	background-size: var(--size) var(--size);
+	border: var(--border) solid var(--color);
+	border-radius: var(--borderRadius);
+	color: #222;
+	font-size: var(--size);
+	padding: var(--margin) var(--margin) var(--margin) var(--marginLeft);
+	transition: backgroundImage 0.25s;
+}
+
+input[type="time"]:focus {
+	outline: 2px dashed #945;
+	outline-offset: 3px;
+}
+
+.water_text {
+	position: relative;
+	top: 12px;
+}
+.temprature_text {
+	position: relative;
+	top: 12px;
+}
+
+.water_level {
+	height: 100%;
+	position: absolute;
+	margin: 0px;
+	left: 0;
+	border-radius: 25px;
+	transition: all 3s ease-in-out;
+}
